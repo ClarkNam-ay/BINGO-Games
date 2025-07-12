@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINGO GAME</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/Bingo Cards/Logo.png" type="image/png">
+</head>
+<body>
+
+    <!-- Start Screen -->
+<div id="startScreen" class="start-screen">
+  <div class="start-content">
+    <!-- Add Logo -->
+    <img src="/Bingo Cards/Logo.png" alt="Bingo Logo" class="logo">
+    <h1>BINGO GAME</h1>
+    <p>Created by Clark Nam-ay</p>
+    <button onclick="startGame()" class="start-button">Start Game</button>
+  </div>
+</div>
+
+    <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
+
+    <div class="container">
+    
+    <!-- Called Numbers Panel -->
+    <div class="history">
+      <h2>Called Numbers</h2>
+      <div id="calledNumbers"></div>
+    </div>
+
+    <!-- Main Caller Panel -->
+    <div class="main">
+      <h1>BINGO Caller</h1>
+      <div class="bingo-display" id="currentNumber">
+        <span class="bingo-letter" id="currentLetter">-</span>
+        <span class="bingo-number" id="currentDigit">--</span>
+      </div>
+
+      <div class="buttons">
+        <button class="shuffle" onclick="shuffleNumber()">Shuffle</button>
+        <button class="reset" onclick="resetGame()">Reset</button>
+      </div>
+
+      <h3>Last 5 Called</h3>
+<div id="lastFive" class="last-five"></div>
+
+      <!-- Pattern Guide -->
+      <h2>Winning Pattern Guide</h2>
+      <div class="pattern-guide">
+        <div class="pattern">
+          <div class="pattern-name">Straight Line (Horizontal)</div>
+          <img src="https://i.imgur.com/7I3d2Gu.png" alt="Horizontal Line Pattern">
+        </div>
+        <div class="pattern">
+          <div class="pattern-name">Vertical Line</div>
+          <img src="https://i.imgur.com/SVk5ttV.png" alt="Vertical Line Pattern">
+        </div>
+        <div class="pattern">
+          <div class="pattern-name">Diagonal Line</div>
+          <img src="https://i.imgur.com/2dZT7Uv.png" alt="Diagonal Line Pattern">
+        </div>
+        <div class="pattern">
+          <div class="pattern-name">Four Corners</div>
+          <img src="https://i.imgur.com/3kBLOkN.png" alt="Four Corners Pattern">
+        </div>
+        <div class="pattern">
+          <div class="pattern-name">Full House (Blackout)</div>
+          <img src="https://i.imgur.com/OuW7cBz.png" alt="Blackout Pattern">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="function.js"></script>
+    
+  <footer class="footer-credit">Created by Clark Nam-ay</footer>
+
+</body>
+</html>

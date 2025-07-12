@@ -1,0 +1,400 @@
+/* Reset and Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  padding: 0;
+  margin: 0;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  padding: 8px 16px;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* Main Container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 80px 20px 30px;
+  justify-content: center;
+}
+
+/* Called Numbers Panel */
+.history {
+  flex: 1 1 280px;
+  max-height: 500px;
+  overflow-y: auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.history h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#calledNumbers {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Main Caller Panel */
+.main {
+  flex: 2 1 300px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.main h1 {
+  font-size: 28px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* BINGO Display */
+.bingo-display {
+  width: 160px;
+  height: 160px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ffffff 40%, #007bff 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  text-shadow: 1px 1px 2px #000;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bingo-letter {
+  font-size: 32px;
+}
+
+.bingo-number {
+  font-size: 40px;
+}
+
+/* Buttons */
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+button.shuffle {
+  background-color: #28a745;
+  color: white;
+}
+
+button.reset {
+  background-color: #dc3545;
+  color: white;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Last 5 Called Balls */
+.last-five {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0 20px;
+}
+
+.last-five .ball {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 2px #000;
+}
+
+.ball.B { background: #007bff; }
+.ball.I { background: #dc3545; }
+.ball.N { background: #6c757d; color: black; text-shadow: none; }
+.ball.G { background: #28a745; }
+.ball.O { background: #ffc107; color: black; text-shadow: none; }
+
+/* Pattern Guide */
+.pattern-guide {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.pattern {
+  text-align: center;
+  width: 140px;
+}
+
+.pattern img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+.pattern-name {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.2); }
+  50%  { transform: scale(0.9); }
+  70%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.bounce {
+  animation: bounce 0.6s ease-in-out;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.dark .main,
+body.dark .history {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+body.dark .theme-toggle {
+  background-color: #eee;
+  color: #111;
+}
+
+body.dark .bingo-display {
+  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+body.dark .pattern img {
+  filter: brightness(0.8);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 80px 10px 20px;
+  }
+
+  .main, .history {
+    width: 100%;
+  }
+
+  .bingo-display {
+    width: 140px;
+    height: 140px;
+  }
+
+  .bingo-letter {
+    font-size: 28px;
+  }
+
+  .bingo-number {
+    font-size: 32px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .theme-toggle {
+    top: 10px;
+    right: 10px;
+    font-size: 13px;
+    padding: 6px 12px;
+  }
+
+  .pattern {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .pattern {
+    width: 100%;
+  }
+}
+
+/* Start Screen Styles */
+.start-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #007bff 0%, #001f4d 100%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+  text-align: center;
+  transition: opacity 0.5s ease;
+}
+
+.start-screen.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.start-content h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.start-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.start-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.start-button:hover {
+  background-color: #218838;
+}
+
+/* Footer Credit */
+.footer-credit {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin: 20px auto;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+/* Fade-in from bottom */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Logo animation */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 20px;
+  animation: popIn 1s ease-out forwards;
+}
+
+
+/* Title animation */
+.start-content h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+  animation: fadeInUp 1.2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Subtitle animation */
+.start-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  animation: fadeInUp 1.4s ease-out forwards;
+  opacity: 0;
+}
+
+/* Button animation */
+.start-button {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #28a745;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  animation: fadeInUp 1.6s ease-out forwards;
+  opacity: 0;
+}
+
+.start-button:hover {
+  background-color: #218838;
+}
+
