@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BINGO GAME</title>
+    <title>BINGO ni CLARK</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="/images/logos.png" type="image/png">
 </head>
@@ -12,8 +12,8 @@
     <!-- Start Screen -->
 <div id="startScreen" class="start-screen">
   <div class="start-content">
-    <img src="logo.png" alt="Bingo Logo" class="logo">
-    <h1>BINGO GAME</h1>
+    <img src="/images/logos.png" alt="Bingo Logo" class="logo">
+    <h1>BINGO ni CLARK</h1>
     <p>Created by Clark Nam-ay</p>
     
     <button onclick="startCallerMode()" class="start-button">🎤 Start as Caller</button>
@@ -87,10 +87,12 @@
       </div>
     </div>
   </div>
+  <button class="back-icon" onclick="goBackToStart()" aria-label="Back to Start">⬅️</button>
   </div>
 
   <!-- Player Mode -->
 <div id="playerUI" class="container">
+  <button class="back-icon" onclick="goBackToStart()" aria-label="Back to Start">⬅️</button>
   <h1>BINGO Player Card</h1>
 
   <div class="buttons">

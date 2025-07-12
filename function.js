@@ -215,7 +215,6 @@ function generatePlayerCard() {
   }
 }
 
-
 function resetHits() {
   const cells = document.querySelectorAll('#playerCard div');
 
@@ -225,6 +224,12 @@ function resetHits() {
       cell.classList.remove('hit');
     }
   });
+}
+
+function goBackToStart() {
+  document.getElementById('callerUI').style.display = 'none';
+  document.getElementById('playerUI').style.display = 'none';
+  document.getElementById('startScreen').classList.remove('hidden');
 }
 
 

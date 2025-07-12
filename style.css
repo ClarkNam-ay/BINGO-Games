@@ -480,6 +480,23 @@ body.dark .pattern img {
   border-radius: 6px;
 }
 
+.back-icon {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: none;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 10;
+  color: inherit;
+}
+
+.back-icon:hover {
+  transform: scale(1.2);
+}
+
+
 @media screen and (max-width: 600px) {
   .bingo-card {
     grid-template-columns: repeat(5, 50px);
@@ -524,6 +541,7 @@ body.dark .pattern img {
   .main h1, #playerUI h1 {
     font-size: 24px;
     text-align: center;
+    margin-top: 60px;
   }
 
   .last-five {
