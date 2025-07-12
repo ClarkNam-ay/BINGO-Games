@@ -12,13 +12,16 @@
     <!-- Start Screen -->
 <div id="startScreen" class="start-screen">
   <div class="start-content">
-    <!-- Add Logo -->
-    <img src="/images/logos.png" alt="Bingo Logo" class="logo">
+    <img src="logo.png" alt="Bingo Logo" class="logo">
     <h1>BINGO GAME</h1>
     <p>Created by Clark Nam-ay</p>
-    <button onclick="startGame()" class="start-button">Start Game</button>
+    
+    <button onclick="startCallerMode()" class="start-button">🎤 Start as Caller</button>
+    <button onclick="startPlayerMode()" class="start-button secondary">🎮 Start as Player</button>
   </div>
 </div>
+
+<div id="callerUI">
 
     <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
 
@@ -84,6 +87,21 @@
       </div>
     </div>
   </div>
+  </div>
+
+  <!-- Player Mode -->
+<div id="playerUI" class="container">
+  <h1>BINGO Player Card</h1>
+
+  <div class="buttons">
+    <button onclick="generatePlayerCard()">🔁 Change Card</button>
+    <button onclick="resetHits()">🧼 Reset Hits</button>
+  </div>
+
+  <div id="playerCard" class="bingo-card"></div>
+</div>
+
+<audio id="hitSound" src="ding.mp3" preload="auto"></audio>
 
   <script src="function.js"></script>
     

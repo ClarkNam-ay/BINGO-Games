@@ -145,5 +145,88 @@ function startGame() {
   startScreen.classList.add('hidden');
 }
 
+function startCallerMode() {
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('callerUI').style.display = 'block';
+}
+
+function startPlayerMode() {
+  document.getElementById('startScreen').classList.add('hidden');
+  document.getElementById('playerUI').style.display = 'block';
+  generatePlayerCard();
+}
+
+function generatePlayerCard() {
+  const container = document.getElementById('playerCard');
+  container.innerHTML = '';
+
+  const letters = ['B', 'I', 'N', 'G', 'O'];
+
+  // Create header row
+  letters.forEach(letter => {
+    const header = document.createElement('div');
+    header.classList.add('card-header');
+    header.textContent = letter;
+    container.appendChild(header);
+  });
+
+  // Generate numbers for each column
+  const columns = [];
+
+  for (let i = 0; i < 5; i++) {
+    const start = i * 15 + 1;
+    const end = start + 14;
+    const nums = [];
+
+    while (nums.length < 5) {
+      const num = Math.floor(Math.random() * 15) + start;
+      if (!nums.includes(num)) nums.push(num);
+    }
+
+    columns.push(nums);
+  }
+
+  // Fill the card row by row (i = row, j = col)
+  for (let i = 0; i < 5; i++) {
+    for (let j = 0; j < 5; j++) {
+      const box = document.createElement('div');
+
+      if (i === 2 && j === 2) {
+        box.textContent = '★'; // Free space
+        box.classList.add('free');
+      } else {
+        const value = columns[j][i];
+        box.textContent = value;
+
+        box.addEventListener('click', () => {
+          box.classList.toggle('hit');
+
+          // 🔊 Sound on click
+          const audio = document.getElementById('hitSound');
+          if (audio) {
+            audio.currentTime = 0;
+            audio.play();
+          }
+        });
+      }
+
+      container.appendChild(box);
+    }
+  }
+}
+
+
+function resetHits() {
+  const cells = document.querySelectorAll('#playerCard div');
+
+  cells.forEach(cell => {
+    // Only reset non-free cells
+    if (!cell.classList.contains('free')) {
+      cell.classList.remove('hit');
+    }
+  });
+}
+
+
 // Initial setup
 generateNumbers();
