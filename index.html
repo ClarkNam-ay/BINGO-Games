@@ -1,113 +1,125 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BINGO ni CLARK</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="/images/logos.png" type="image/png">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="/images/logos.png" type="image/png" />
+  </head>
+  <body>
     <!-- Start Screen -->
-<div id="startScreen" class="start-screen">
-  <div class="start-content">
-    <img src="/images/logos.png" alt="Bingo Logo" class="logo">
-    <h1>BINGO ni CLARK</h1>
-    <p>Created by Clark Nam-ay</p>
-    
-    <button onclick="startCallerMode()" class="start-button">🎤 Start as Caller</button>
-    <button onclick="startPlayerMode()" class="start-button secondary">🎮 Start as Player</button>
-  </div>
-</div>
+    <div id="startScreen" class="start-screen">
+      <div class="start-content">
+        <img src="/images/logos.png" alt="Bingo Logo" class="logo" />
+        <h1>BINGO ni CLARK</h1>
+        <p>Created by Clark Nam-ay</p>
 
-<div id="callerUI">
-
-    <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
-
-    <div class="container">
-    
-    <!-- Called Numbers Panel -->
-    <div class="history">
-      <h2>Called Numbers</h2>
-      <div id="calledNumbers"></div>
+        <button onclick="startCallerMode()" class="start-button">
+          🎤 Start as Caller
+        </button>
+        <button onclick="startPlayerMode()" class="start-button secondary">
+          🎮 Start as Player
+        </button>
+      </div>
     </div>
 
-    <!-- Main Caller Panel -->
-    <div class="main">
-      <h1>BINGO Caller</h1>
-      <div class="bingo-display" id="currentNumber">
-        <span class="bingo-letter" id="currentLetter">-</span>
-        <span class="bingo-number" id="currentDigit">--</span>
+    <div id="callerUI">
+      <button id="themeToggle" class="theme-toggle">🌙 Dark Mode</button>
+
+      <div class="container">
+        <!-- Called Numbers Panel -->
+        <div class="history">
+          <h2>Called Numbers</h2>
+          <div id="calledNumbers"></div>
+        </div>
+
+        <!-- Main Caller Panel -->
+        <div class="main">
+          <h1>BINGO Caller</h1>
+          <div class="bingo-display" id="currentNumber">
+            <span class="bingo-letter" id="currentLetter">-</span>
+            <span class="bingo-number" id="currentDigit">--</span>
+          </div>
+
+          <div class="buttons">
+            <button class="shuffle" onclick="shuffleNumber()">Shuffle</button>
+            <button class="reset" onclick="resetGame()">Reset</button>
+          </div>
+
+          <h3>Last 5 Called</h3>
+          <div id="lastFive" class="last-five"></div>
+
+          <!-- Pattern Guide -->
+          <h2>Winning Pattern Guide</h2>
+          <div class="pattern-guide">
+            <div class="pattern">
+              <div class="pattern-name">3 with Free</div>
+              <img src="/images/2.png" alt="Horizontal Line Pattern" />
+            </div>
+            <div class="pattern">
+              <div class="pattern-name">Victory</div>
+              <img src="/images/3.png" alt="Vertical Line Pattern" />
+            </div>
+            <div class="pattern">
+              <div class="pattern-name">Four Corners</div>
+              <img src="/images/4.png" alt="Diagonal Line Pattern" />
+            </div>
+            <div class="pattern">
+              <div class="pattern-name">Square</div>
+              <img src="/images/5.png" alt="Four Corners Pattern" />
+            </div>
+            <div class="pattern">
+              <div class="pattern-name">4 Dot line</div>
+              <img src="/images/6.png" alt="Blackout Pattern" />
+            </div>
+            <div class="pattern">
+              <div class="pattern-name">3 Dot line</div>
+              <img src="/images/7.png" alt="Blackout Pattern" />
+            </div>
+            <div class="pattern">
+              <div class="pattern-name">Small Box free</div>
+              <img src="/images/8.png" alt="Blackout Pattern" />
+            </div>
+            <div class="pattern">
+              <div class="pattern-name">Straight line</div>
+              <img src="/images/9.png" alt="Blackout Pattern" />
+            </div>
+          </div>
+        </div>
       </div>
+      <button
+        class="back-icon"
+        onclick="goBackToStart()"
+        aria-label="Back to Start"
+      >
+        ⬅️
+      </button>
+    </div>
+
+    <!-- Player Mode -->
+    <div id="playerUI" class="container">
+      <button
+        class="back-icon"
+        onclick="goBackToStart()"
+        aria-label="Back to Start"
+      >
+        ⬅️
+      </button>
+      <h1>BINGO Player Card</h1>
 
       <div class="buttons">
-        <button class="shuffle" onclick="shuffleNumber()">Shuffle</button>
-        <button class="reset" onclick="resetGame()">Reset</button>
+        <button onclick="generatePlayerCard()">🔁 Change Card</button>
+        <button onclick="resetHits()">🧼 Reset Hits</button>
       </div>
 
-      <h3>Last 5 Called</h3>
-<div id="lastFive" class="last-five"></div>
-
-      <!-- Pattern Guide -->
-      <h2>Winning Pattern Guide</h2>
-      <div class="pattern-guide">
-        <div class="pattern">
-          <div class="pattern-name">3 with Free</div>
-          <img src="/images/2.png" alt="Horizontal Line Pattern">
-        </div>
-        <div class="pattern">
-          <div class="pattern-name">Victory</div>
-          <img src="/images/3.png" alt="Vertical Line Pattern">
-        </div>
-        <div class="pattern">
-          <div class="pattern-name">Four Corners</div>
-          <img src="/images/4.png" alt="Diagonal Line Pattern">
-        </div>
-        <div class="pattern">
-          <div class="pattern-name">Square</div>
-          <img src="/images/5.png" alt="Four Corners Pattern">
-        </div>
-        <div class="pattern">
-          <div class="pattern-name">4 Dot line</div>
-          <img src="/images/6.png" alt="Blackout Pattern">
-        </div>
-        <div class="pattern">
-          <div class="pattern-name">3 Dot line</div>
-          <img src="/images/7.png" alt="Blackout Pattern">
-        </div>
-        <div class="pattern">
-          <div class="pattern-name">Small Box free</div>
-          <img src="/images/8.png" alt="Blackout Pattern">
-        </div>
-        <div class="pattern">
-          <div class="pattern-name">Straight line</div>
-          <img src="/images/9.png" alt="Blackout Pattern">
-        </div>
-      </div>
+      <div id="playerCard" class="bingo-card"></div>
     </div>
-  </div>
-  <button class="back-icon" onclick="goBackToStart()" aria-label="Back to Start">⬅️</button>
-  </div>
 
-  <!-- Player Mode -->
-<div id="playerUI" class="container">
-  <button class="back-icon" onclick="goBackToStart()" aria-label="Back to Start">⬅️</button>
-  <h1>BINGO Player Card</h1>
+    <audio id="hitSound" src="ding.mp3" preload="auto"></audio>
 
-  <div class="buttons">
-    <button onclick="generatePlayerCard()">🔁 Change Card</button>
-    <button onclick="resetHits()">🧼 Reset Hits</button>
-  </div>
+    <script src="function.js"></script>
 
-  <div id="playerCard" class="bingo-card"></div>
-</div>
-
-<audio id="hitSound" src="ding.mp3" preload="auto"></audio>
-
-  <script src="function.js"></script>
-    
-  <footer class="footer-credit">Created by Clark Nam-ay</footer>
-
-</body>
+    <footer class="footer-credit">Created by Clark Nam-ay</footer>
+  </body>
 </html>

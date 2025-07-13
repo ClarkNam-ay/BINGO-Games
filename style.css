@@ -12,8 +12,10 @@ body {
   margin: 0;
 }
 
-h1, h2, h3 {
-    text-align: center;
+h1,
+h2,
+h3 {
+  text-align: center;
 }
 
 /* Theme Toggle Button */
@@ -48,7 +50,7 @@ h1, h2, h3 {
   background: #fff;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .history h2 {
@@ -67,7 +69,7 @@ h1, h2, h3 {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .main h1 {
@@ -150,11 +152,25 @@ button {
   text-shadow: 1px 1px 2px #000;
 }
 
-.ball.B { background: #007bff; }
-.ball.I { background: #dc3545; }
-.ball.N { background: #6c757d; color: black; text-shadow: none; }
-.ball.G { background: #28a745; }
-.ball.O { background: #ffc107; color: black; text-shadow: none; }
+.ball.B {
+  background: #007bff;
+}
+.ball.I {
+  background: #dc3545;
+}
+.ball.N {
+  background: #6c757d;
+  color: black;
+  text-shadow: none;
+}
+.ball.G {
+  background: #28a745;
+}
+.ball.O {
+  background: #ffc107;
+  color: black;
+  text-shadow: none;
+}
 
 /* Pattern Guide */
 .pattern-guide {
@@ -172,7 +188,7 @@ button {
 .pattern img {
   width: 100%;
   border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .pattern-name {
@@ -183,11 +199,21 @@ button {
 
 /* Bounce Animation */
 @keyframes bounce {
-  0%   { transform: scale(1); }
-  30%  { transform: scale(1.2); }
-  50%  { transform: scale(0.9); }
-  70%  { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 .bounce {
@@ -212,7 +238,7 @@ body.dark .theme-toggle {
 }
 
 body.dark .bingo-display {
-  box-shadow: 0 0 10px rgba(255,255,255,0.2);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 body.dark .pattern img {
@@ -227,7 +253,8 @@ body.dark .pattern img {
     padding: 80px 10px 20px;
   }
 
-  .main, .history {
+  .main,
+  .history {
     width: 100%;
   }
 
@@ -363,7 +390,6 @@ body.dark .pattern img {
   animation: popIn 1s ease-out forwards;
 }
 
-
 /* Title animation */
 .start-content h1 {
   font-size: 40px;
@@ -407,7 +433,8 @@ body.dark .pattern img {
   background-color: #0056b3;
 }
 
-#callerUI, #playerUI {
+#callerUI,
+#playerUI {
   display: none;
 }
 
@@ -496,7 +523,6 @@ body.dark .pattern img {
   transform: scale(1.2);
 }
 
-
 @media screen and (max-width: 600px) {
   .bingo-card {
     grid-template-columns: repeat(5, 50px);
@@ -538,7 +564,8 @@ body.dark .pattern img {
     padding: 10px;
   }
 
-  .main h1, #playerUI h1 {
+  .main h1,
+  #playerUI h1 {
     font-size: 24px;
     text-align: center;
     margin-top: 60px;
